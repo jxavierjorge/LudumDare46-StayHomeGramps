@@ -1,0 +1,37 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Fonts/Pixellari.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://Scripts/ButtonScript.gd" type="Script" id=2]
+[ext_resource path="res://Sounds/SFX/Select.wav" type="AudioStream" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+size = 45
+outline_size = 5
+font_data = ExtResource( 1 )
+
+[node name="MenuButton" type="Button"]
+margin_right = 1040.0
+margin_bottom = 60.0
+rect_min_size = Vector2( 360, 60 )
+flat = true
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+margin_right = 40.0
+margin_bottom = 14.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.933333, 0.52549, 0.584314, 1 )
+custom_colors/font_outline_modulate = Color( 0.160784, 0.156863, 0.192157, 1 )
+text = "LABEL"
+uppercase = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+bus = "SFX"
+[connection signal="mouse_entered" from="." to="." method="_on_MenuButton_mouse_entered"]
